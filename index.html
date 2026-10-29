@@ -116,11 +116,29 @@ section{position:relative}
 .vframe{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:var(--navy);box-shadow:0 18px 40px -18px rgba(18,48,99,.5)}
 .vframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .video .fine a{color:var(--navy);font-weight:600}
+.warm{display:flex;gap:18px;align-items:flex-start;margin-top:30px;max-width:820px;background:var(--navy);border-radius:14px;padding:22px 24px}
+.warm h3{color:#fff;margin-bottom:6px}
+.warm p{color:#cfe0f5}
+.nextbar{margin-top:28px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.nextbar div{border:1px solid rgba(255,255,255,.28);border-radius:14px;padding:18px 20px}
+.nextbar small{display:block;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--aqua);margin-bottom:6px}
+.flame{flex:0 0 auto;width:34px;height:34px;color:var(--aqua)}
+.nextbar .flame{width:26px;height:26px;margin-bottom:6px}
+.tldr-next{margin-top:18px;font-size:1rem;color:var(--muted)}
+.tldr-next b{color:var(--navy)}
+@media(max-width:800px){.nextbar{grid-template-columns:1fr}}
 /* close */
 .closing{background:var(--navy);color:var(--on-navy)}
 .closing h2,.closing h3{color:#fff}
 .closing p{color:#cfe0f5}
 .closing .kiln{color:#fff}
+.closing{overflow:hidden}
+.closing .panel{position:relative;z-index:1}
+.nextbar .kilncard{position:relative;overflow:hidden}
+.nextbar .kilncard>*:not(.kiln-bg){position:relative;z-index:1}
+.kiln-bg{position:absolute;right:-18px;bottom:-30px;width:160px;height:160px;color:var(--aqua);opacity:.2;pointer-events:none;z-index:0;animation:floaty 7s ease-in-out infinite alternate}
+@keyframes floaty{to{transform:translate(-8px,-10px) rotate(-3deg)}}
+@media(prefers-reduced-motion:reduce){.kiln-bg{animation:none}}
 .steps{counter-reset:s;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
 .steps div{background:rgba(255,255,255,.08);border-radius:14px;padding:22px}
 .steps div::before{counter-increment:s;content:counter(s);display:block;font-size:2.2rem;font-weight:700;color:var(--aqua);margin-bottom:6px}
@@ -160,6 +178,7 @@ section{position:relative}
       <div class="c"><div class="n">16</div><h3>Domains redirect</h3><p>All sixteen point to invictusgrowth.com.</p></div>
       <div class="c"><div class="n">G</div><h3>Workspace on Cloudflare</h3><p>Google Workspace connects through Cloudflare, not GoDaddy.</p></div>
     </div>
+    <p class="tldr-next reveal"><b>Next steps:</b> connect Instantly to Google Workspace, then The Kiln configures email warmup once the accounts are connected.</p>
     <p class="scrollhint reveal">Scroll ↓</p>
   </div></div>
 </section>
@@ -239,7 +258,7 @@ section{position:relative}
 
 <section id="instantly">
   <div class="panel"><div class="wrap">
-    <p class="eyebrow">Then: connect Instantly</p>
+    <p class="eyebrow">Next steps: connect Instantly</p>
     <h2>Allow Instantly in your Google Workspace.</h2>
     <p style="margin-top:14px;max-width:640px">A Workspace admin approves Instantly. After that, mailboxes can be connected to Instantly with Google sign-in.</p>
     <ol class="isteps">
@@ -255,6 +274,12 @@ section{position:relative}
       <div class="vframe"><iframe src="https://www.loom.com/embed/b433324c4d8342b1bbea2b90f5933e6d" title="Connecting Instantly to Google Workspace" loading="lazy" allowfullscreen allow="fullscreen; picture-in-picture"></iframe></div>
       <p class="fine"><a href="https://www.loom.com/share/b433324c4d8342b1bbea2b90f5933e6d" target="_blank" rel="noopener">Open the video in Loom</a></p>
     </div>
+    <div class="warm reveal">
+      <svg class="flame" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c1 3.5 5 5.5 5 10a5 5 0 0 1-10 0c0-2 1-3.2 2-4.2.2 1.2.8 2 1.8 2.4C10.2 8.6 10.6 5.6 12 3z"/></svg>
+      <div><p class="eyebrow" style="margin-bottom:8px">Next step, The Kiln</p>
+      <h3>The Kiln configures email warmup in Instantly</h3>
+      <p>Once the accounts are connected, we will set up the warmup configurations.</p></div>
+    </div>
   </div></div>
 </section>
 
@@ -266,6 +291,10 @@ section{position:relative}
       <div class="reveal"><h3>Transfer DNS management</h3><p>GoDaddy to Cloudflare. Domains stay paid on GoDaddy.</p></div>
       <div class="reveal"><h3>Redirect 16 domains</h3><p>All point to invictusgrowth.com.</p></div>
       <div class="reveal"><h3>Connect Google Workspace</h3><p>Verification, SPF and DKIM records added in Cloudflare.</p></div>
+    </div>
+    <div class="nextbar">
+      <div class="reveal kilncard"><svg class="kiln-bg" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width=".8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5M9 8V2M15 8V2M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8z"/></svg><small>Next step</small><h3>Connect Instantly</h3><p>Approve Instantly in Google Workspace, then add the accounts and inboxes.</p></div>
+      <div class="reveal kilncard"><svg class="kiln-bg" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width=".8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c1 3.5 5 5.5 5 10a5 5 0 0 1-10 0c0-2 1-3.2 2-4.2.2 1.2.8 2 1.8 2.4C10.2 8.6 10.6 5.6 12 3z"/></svg><small>Next step, The Kiln</small><h3>Configure email warmup</h3><p>The Kiln sets up warmup in Instantly once the accounts are connected.</p></div>
     </div>
     <div class="foot">
       <svg class="kiln" role="img" aria-label="The Kiln, a 2X company"><use href="#kiln-logo"/></svg>
