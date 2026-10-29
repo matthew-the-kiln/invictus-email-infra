@@ -250,10 +250,11 @@ section{position:relative}
     <div class="table">
       <div class="row head"><div>Type</div><div>Record</div><div>Purpose</div></div>
       <div class="row rec"><div class="t">TXT</div><div><code>@</code><span class="why">google-site-verification</span></div><div><code>google-site-verification=&lt;value from Google&gt;</code><span class="why">Proves the domain belongs to the client (authorization).</span></div></div>
+      <div class="row rec"><div class="t">MX</div><div><code>@</code><span class="why">Mail routing</span></div><div><code>1 smtp.google.com</code><span class="why">Sends incoming email to Google, so the mailboxes can receive replies. Priority 1.</span></div></div>
       <div class="row rec"><div class="t">TXT</div><div><code>@</code><span class="why">SPF</span></div><div><code>v=spf1 include:_spf.google.com ~all</code><span class="why">Lists Google as an allowed sender.</span></div></div>
       <div class="row rec"><div class="t">TXT</div><div><code>google._domainkey</code><span class="why">DKIM</span></div><div><code>v=DKIM1; k=rsa; p=&lt;key from Google Admin&gt;</code><span class="why">Signs outgoing mail so it can be verified.</span></div></div>
     </div>
-    <p class="fine">Values shown are the standard format. The real verification and DKIM values are generated in Google Workspace.</p>
+    <p class="fine">Values shown are the standard format. The real verification and DKIM values are generated in Google Workspace. Google also supports an older set of five MX records.</p>
   </div></div>
 </section>
 
@@ -291,7 +292,7 @@ section{position:relative}
     <div class="steps">
       <div class="reveal"><h3>Transfer DNS management</h3><p>GoDaddy to Cloudflare. Existing domains stay paid on GoDaddy; new ones are bought on Cloudflare.</p></div>
       <div class="reveal"><h3>Redirect 16 domains</h3><p>All point to invictusgrowth.com.</p></div>
-      <div class="reveal"><h3>Connect Google Workspace</h3><p>Verification, SPF and DKIM records added in Cloudflare.</p></div>
+      <div class="reveal"><h3>Connect Google Workspace</h3><p>Verification, MX, SPF and DKIM records added in Cloudflare.</p></div>
     </div>
     <div class="nextbar">
       <div class="reveal kilncard"><svg class="kiln-bg" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width=".8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5M9 8V2M15 8V2M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8z"/></svg><small>Next step</small><h3>Connect Instantly</h3><p>Approve Instantly in Google Workspace, then add the accounts and inboxes.</p></div>
