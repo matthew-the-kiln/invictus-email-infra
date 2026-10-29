@@ -56,7 +56,7 @@ section{position:relative}
 .box.cf{border-color:var(--aqua)}
 .chip{display:inline-block;margin:6px 6px 0 0;padding:8px 14px;border-radius:999px;background:var(--soft);font-weight:600;font-size:.92rem;color:var(--navy)}
 .chip.dns{background:var(--navy);color:var(--on-navy)}
-.box{min-height:430px}
+.box{min-height:390px}
 .keeps{margin-bottom:18px}
 .slot{position:relative;min-height:236px;border-radius:14px}
 .slot.ghost,#gdSlot{border:2px dashed var(--line)}
@@ -187,10 +187,10 @@ section{position:relative}
   <div class="panel"><div class="wrap">
     <p class="eyebrow">Move 1</p>
     <h2>DNS management moves to Cloudflare.</h2>
-    <p style="margin-top:14px;max-width:620px">GoDaddy stays as the place the domains are bought and paid for. Cloudflare takes over the DNS records.</p>
+    <p style="margin-top:14px;max-width:620px">GoDaddy stays as the registrar for the existing domains. Cloudflare takes over the DNS records, and new domains are bought there.</p>
     <div class="stage">
       <div class="box" id="gd"><h3>GoDaddy</h3><small>Registrar and billing</small>
-        <div class="keeps"><span class="chip">Domain ownership</span><span class="chip">Initial domains stay paid here</span><span class="chip">New domains bought here</span></div>
+        <div class="keeps"><span class="chip">Domain ownership</span><span class="chip">Existing domains stay paid here</span></div>
         <div class="slot" id="gdSlot"><span class="ghost-label" id="gdGhost">DNS records move out</span>
           <div class="rec-card" id="recCard">
             <div class="rc-head"><b>DNS records</b><span>example</span></div>
@@ -201,14 +201,15 @@ section{position:relative}
           </div>
         </div>
       </div>
-      <div class="box cf" id="cf"><h3>Cloudflare</h3><small>DNS management</small>
+      <div class="box cf" id="cf"><h3>Cloudflare</h3><small>DNS management and new domains</small>
+        <div class="keeps"><span class="chip">New domains bought here</span></div>
         <div class="slot ghost" id="cfSlot"><span class="ghost-label">DNS records land here</span></div>
         <div class="badge" id="cfBadge">All DNS managed here</div>
       </div>
     </div>
     <div class="note">
-      <div class="reveal"><h3>Still paid on GoDaddy</h3><p>The initial domains keep renewing there.</p></div>
-      <div class="reveal"><h3>Buy new domains on GoDaddy</h3><p>From now on, the client can buy domains directly from GoDaddy.</p></div>
+      <div class="reveal"><h3>Existing domains stay on GoDaddy</h3><p>The initial domains keep renewing there.</p></div>
+      <div class="reveal"><h3>Buy new domains on Cloudflare</h3><p>New domains are bought in Cloudflare, so no migration is needed again.</p></div>
       <div class="reveal"><h3>Records managed in Cloudflare</h3><p>All DNS changes happen in one place.</p></div>
     </div>
   </div></div>
@@ -288,7 +289,7 @@ section{position:relative}
     <p class="eyebrow">Summary</p>
     <h2>Three moves, one clean setup.</h2>
     <div class="steps">
-      <div class="reveal"><h3>Transfer DNS management</h3><p>GoDaddy to Cloudflare. Domains stay paid on GoDaddy.</p></div>
+      <div class="reveal"><h3>Transfer DNS management</h3><p>GoDaddy to Cloudflare. Existing domains stay paid on GoDaddy; new ones are bought on Cloudflare.</p></div>
       <div class="reveal"><h3>Redirect 16 domains</h3><p>All point to invictusgrowth.com.</p></div>
       <div class="reveal"><h3>Connect Google Workspace</h3><p>Verification, SPF and DKIM records added in Cloudflare.</p></div>
     </div>
